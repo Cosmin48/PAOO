@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
 {
   if (argc < 2) {
     // TODO 12: Create a print statement using Tutorial_VERSION_MAJOR
-    //          and Tutorial_VERSION_MINOR
+    //          and Tutorial_VERSION_MINOR.
       if (argc < 2) {
     // report version
     std::cout << argv[0] << " Version " << Tutorial_VERSION_MAJOR << "."
