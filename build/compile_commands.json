@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/cosmin/Desktop/cmake/cmake-3.28.0-rc2-tutorial-source/Step1/build",
+  "command": "/usr/bin/g++  -I/home/cosmin/Desktop/cmake/cmake-3.28.0-rc2-tutorial-source/Step1/build -g -std=gnu++11 -o CMakeFiles/Tutorial.dir/tutorial.cxx.o -c /home/cosmin/Desktop/cmake/cmake-3.28.0-rc2-tutorial-source/Step1/tutorial.cxx",
+  "file": "/home/cosmin/Desktop/cmake/cmake-3.28.0-rc2-tutorial-source/Step1/tutorial.cxx"
+}
+]
