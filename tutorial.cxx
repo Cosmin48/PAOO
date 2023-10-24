@@ -33,7 +33,7 @@ public:
 };
 
 int main() {
-    Persoana persoana("Stroiescu Cosmin-Ilie", 22);
+    Persoana persoana("Stroiescu Cosmin-Ilie!", 22);
 
     std::cout << "Nume: " << persoana.getNume() << std::endl;
     std::cout << "Varsta: " << persoana.getVarsta() << " ani" << std::endl;
