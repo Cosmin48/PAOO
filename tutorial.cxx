@@ -7,10 +7,17 @@ private:
     int varsta;
 
 public:
-    // Constructor
+    // Constructor implicit
+    Persoana() {
+        nume = "Necunoscut";
+        varsta = 0;
+        std::cout << "Constructor implicit" << std::endl;
+    }
+    // Constructor parametrizat
     Persoana(std::string nume, int varsta) {
         this->nume = nume;
         this->varsta = varsta;
+        std::cout << "Constructor parametrizat" << std::endl;
     }
 
     // Getteri
@@ -33,7 +40,10 @@ public:
 };
 
 int main() {
-    Persoana persoana("Stroiescu Cosmin-Ilie!", 22);
+    // Constructor implicit
+    Persoana persoanaImplicita;
+
+    Persoana persoana("Stroiescu Cosmin-Ilie", 22); //creare de obiect.
 
     std::cout << "Nume: " << persoana.getNume() << std::endl;
     std::cout << "Varsta: " << persoana.getVarsta() << " ani" << std::endl;
