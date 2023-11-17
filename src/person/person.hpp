@@ -1,8 +1,8 @@
-#ifndef TUTORIAL_HPP
-#define TUTORIAL_HPP
+# pragma once
+
 
 class Persoana {
-private:
+protected:
     char* nume;
     int varsta;
 
@@ -14,7 +14,7 @@ public:
     Persoana(const char* nume, int varsta);
 
     // Destructor
-    ~Persoana();
+    virtual ~Persoana();  // Adaugăm virtual pentru a permite funcționarea corectă a polimorfismului
 
     // Constructor de copiere
     Persoana(const Persoana& other);
@@ -22,15 +22,24 @@ public:
     // Constructor de mutare
     Persoana(Persoana&& other);
 
+    // Operator de atribuire (copy)
+    Persoana& operator=(const Persoana& other);
+
+    // Operator de atribuire (move)
+    Persoana& operator=(Persoana&& other);
+
     // Getter pentru nume
     const char* getNume() const;
 
+    // Getter pentru varsta
     int getVarsta() const;
 
     // Setter pentru nume
     void setNume(const char* nume);
 
+    // Setter pentru varsta
     void setVarsta(int varsta);
-};
 
-#endif
+    // Funcție virtuală pură pentru afișarea detaliilor
+    virtual void afisareDetalii() const = 0;
+};

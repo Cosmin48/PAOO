@@ -1,20 +1,17 @@
 #include <iostream>
 #include <cstring>
-#include "tutorial.hpp"
+#include "person.hpp"
 
 // Constructor implicit
-Persoana::Persoana() : nume(nullptr), varsta(0) {
-    nume = new char[strlen("Necunoscut") + 1];
-    strcpy(nume, "Necunoscut");
-    std::cout << "Constructor implicit - Nume: " << nume << std::endl;
-}
+Persoana::Persoana() {
+}   
 
 // Constructor parametrizat
 Persoana::Persoana(const char* nume, int varsta) : nume(nullptr), varsta(varsta) {
     setNume(nume);
     std::cout << "Constructor parametrizat - Nume: " << this->nume << std::endl;
 }
-
+    
 // Destructor
 Persoana::~Persoana() {
     std::cout << "Destructor - Nume: " << nume << std::endl;
@@ -31,6 +28,35 @@ Persoana::Persoana(const Persoana& other) : nume(nullptr), varsta(other.varsta) 
 Persoana::Persoana(Persoana&& other) : nume(other.nume), varsta(other.varsta) {
     other.nume = nullptr;
     std::cout << "Constructor de mutare - Nume: " << this->nume << std::endl;
+}
+
+// Operator de atribuire (copy)
+Persoana& Persoana::operator=(const Persoana& other) {
+    if (this != &other) {
+        // Eliberează resursele existente
+        delete[] nume;
+
+        varsta = other.varsta;
+        setNume(other.nume);
+
+        std::cout << "Operator de atribuire (copy) - Nume: " << this->nume << std::endl;
+    }
+    return *this;
+}
+
+// Operator de atribuire (move assignment)
+Persoana& Persoana::operator=(Persoana&& other) {
+    if (this != &other) {
+        delete[] nume;  // Eliberează resursele existente
+
+        nume = other.nume;
+        varsta = other.varsta;
+
+        other.nume = nullptr;
+
+        std::cout << "Operator de atribuire (move) - Nume: " << this->nume << std::endl;
+    }
+    return *this;
 }
 
 // Getter pentru nume
@@ -53,4 +79,9 @@ void Persoana::setNume(const char* nume) {
 // Setter pentru varsta
 void Persoana::setVarsta(int varsta) {
     this->varsta = varsta;
+}
+
+// Metoda pentru afișarea detaliilor
+void Persoana::afisareDetalii() const {
+    std::cout << "Detalii despre persoana: Nume: " << getNume() << ", Varsta: " << getVarsta() << std::endl;
 }
